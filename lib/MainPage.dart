@@ -1,12 +1,13 @@
 import 'dart:async';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue_app/communication.dart';
+import 'package:flutter_blue_app/pages/login.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 
 import './SelectBondedDevicePage.dart';
 import './ChatPage.dart';
 //import './ChatPage2.dart';
-
 
 class MainPage extends StatefulWidget {
   @override
@@ -148,6 +149,18 @@ class _MainPage extends State<MainPage> {
                 },
               ),
             ),
+            SizedBox(height: 70),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: ElevatedButton.icon(
+                  onPressed: () async {
+                    await FirebaseAuth.instance.signOut();
+                    Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (_) => Login()));
+                  },
+                  icon: Icon(Icons.exit_to_app),
+                  label: Text("Déconnecter")),
+            )
           ],
         ),
       ),
