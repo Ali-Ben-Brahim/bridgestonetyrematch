@@ -2,6 +2,8 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
+import 'package:flutter_blue_app/pages/test1.dart';
+import 'package:flutter_blue_app/pages/test_page.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 
 class ChatPage extends StatefulWidget {
@@ -101,6 +103,10 @@ class _ChatPage extends State<ChatPage> {
                     _message.whom == clientID ? Colors.blueAccent : Colors.grey,
                 borderRadius: BorderRadius.circular(7.0)),
           ),
+          ElevatedButton(onPressed:()=> Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) =>  Test(title: _message.text.trim(),)),
+  ), child: Text('Click'))
         ],
         mainAxisAlignment: _message.whom == clientID
             ? MainAxisAlignment.end
@@ -124,6 +130,9 @@ class _ChatPage extends State<ChatPage> {
                   controller: listScrollController,
                   children: list),
             ),
+            Row(children: [
+              
+            ],)
             
           ],
         ),
