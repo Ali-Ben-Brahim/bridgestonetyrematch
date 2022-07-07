@@ -124,36 +124,7 @@ class _ChatPage extends State<ChatPage> {
                   controller: listScrollController,
                   children: list),
             ),
-            Row(
-              children: <Widget>[
-                Flexible(
-                  child: Container(
-                    margin: const EdgeInsets.only(left: 16.0),
-                    child: TextField(
-                      style: const TextStyle(fontSize: 15.0),
-                      controller: textEditingController,
-                      decoration: InputDecoration.collapsed(
-                        hintText: isConnecting
-                            ? 'Wait until connected...'
-                            : isConnected
-                                ? 'Type your message...'
-                                : 'Chat got disconnected',
-                        hintStyle: const TextStyle(color: Colors.grey),
-                      ),
-                      enabled: isConnected,
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.all(8.0),
-                  child: IconButton(
-                      icon: const Icon(Icons.send),
-                      onPressed: isConnected
-                          ? () => _sendMessage(textEditingController.text)
-                          : null),
-                ),
-              ],
-            )
+            
           ],
         ),
       ),
@@ -209,29 +180,4 @@ class _ChatPage extends State<ChatPage> {
     }
   }
 
-  void _sendMessage(String text) async {
-    text = text.trim();
-    textEditingController.clear();
-
-    if (text.length > 0) {
-      try {
-        connection.output.add(utf8.encode(text + "\r\n"));
-        await connection.output.allSent;
-
-        setState(() {
-          messages.add(_Message(clientID, text));
-        });
-
-        Future.delayed(Duration(milliseconds: 333)).then((_) {
-          listScrollController.animateTo(
-              listScrollController.position.maxScrollExtent,
-              duration: Duration(milliseconds: 333),
-              curve: Curves.easeOut);
-        });
-      } catch (e) {
-        // Ignore error, but notify state
-        setState(() {});
-      }
-    }
-  }
 }
