@@ -53,7 +53,7 @@ class DetailschartState extends State<Detailschart> {
     return Scaffold(
         appBar: AppBar(
           title: const Text("Table"),
-          backgroundColor: Colors.green,
+          backgroundColor: Colors.red,
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -79,7 +79,7 @@ class DetailschartState extends State<Detailschart> {
                         rows: List.generate(type.length,
                             (index) => fct(type[index], test[index]))),
                             SizedBox(height: 20,),
-                            Text("Calcule",
+                            Text("Calcul",
                       textScaleFactor: 2,
                       style: TextStyle(fontWeight: FontWeight.bold),)
                                 

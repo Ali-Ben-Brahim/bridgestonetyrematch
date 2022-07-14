@@ -14,45 +14,59 @@ class Communication {
 
   // Connect to the device via Bluetooth
   Future<void> connectBl(address) async{
-    await BluetoothConnection.toAddress(address).then((_connection) {
-      print('Connected to the device');
-      connection = _connection;
+    try {
+    BluetoothConnection connection = await BluetoothConnection.toAddress(address);
+    print('Connected to the device');
 
-      // Creates a listener to receive data
-      connection.input.listen(onDataReceived).onDone(() {});
-    }).catchError((error) {
-      print('Cannot connect, exception occured');
+    connection.input.listen((Uint8List data) {
+        print('Data incoming: ${ascii.decode(data)}');
+        connection.output.add(data); // Sending data
+
+        if (ascii.decode(data).contains('!')) {
+            connection.finish(); // Closing connection
+            print('Disconnecting by local host');
+        }
+    }).onDone(() {
+        print('Disconnected by remote request');
     });
+}
+catch (exception) {
+    print('Cannot connect, exception occured');
+}
   }
+  
 
   // When receive information
   void onDataReceived(Uint8List data) {
-    // Allocate buffer for parsed data
-    int backspacesCounter = 0;
-    data.forEach((byte) {
-      if (byte == 8 || byte == 127) {
-        backspacesCounter++;
-      }
-    });
-    Uint8List buffer = Uint8List(data.length - backspacesCounter);
-    int bufferIndex = buffer.length;
+    try{
+      // Allocate buffer for parsed data
+      int backspacesCounter = 0;
+      data.forEach((byte) {
+        if (byte == 8 || byte == 127) {
+          backspacesCounter++;
+        }
+      });
+      Uint8List buffer = Uint8List(data.length - backspacesCounter);
+      int bufferIndex = buffer.length;
 
-    // Apply backspace control character
-    backspacesCounter = 0;
-    for (int i = data.length - 1; i >= 0; i--) {
-      if (data[i] == 8 || data[i] == 127) {
-        backspacesCounter++;
-      } else {
-        if (backspacesCounter > 0) {
-          backspacesCounter--;
+      // Apply backspace control character
+      backspacesCounter = 0;
+      for (int i = data.length - 1; i >= 0; i--) {
+        if (data[i] == 8 || data[i] == 127) {
+          backspacesCounter++;
         } else {
-          buffer[--bufferIndex] = data[i];
+          if (backspacesCounter > 0) {
+            backspacesCounter--;
+          } else {
+            buffer[--bufferIndex] = data[i];
+          }
         }
       }
-    }
+      
+    result = String.fromCharCodes(buffer);
+    }catch(_){}
 
     // Create message if there is new line character
-    result = String.fromCharCodes(buffer);
   }
 
   // To send Message

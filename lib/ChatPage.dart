@@ -1,5 +1,5 @@
-import 'dart:async';
-import 'dart:convert';
+// ignore_for_file: unnecessary_statements
+
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue_app/pages/table_page.dart';
@@ -25,7 +25,7 @@ class _ChatPage extends State<ChatPage> {
   static final clientID = 0;
   BluetoothConnection connection;
 
-  List<_Message> messages = List<_Message>();
+  List<_Message> messages = [];
   String _messageBuffer = '';
 
   final TextEditingController textEditingController =
@@ -85,30 +85,48 @@ class _ChatPage extends State<ChatPage> {
 
   @override
   Widget build(BuildContext context) {
-    final List<Row> list = messages.map((_message) {
+    final List<Row> list = messages.asMap().entries.map((_message) {
       return Row(
         children: <Widget>[
           Container(
             child: Text(
                 (text) {
                   return text == '/shrug' ? '¯\\_(ツ)_/¯' : text;
-                }(_message.text.trim()),
+                }(_message.value.text.trim()),
                 style: TextStyle(color: Colors.white)),
             padding: EdgeInsets.all(12.0),
             margin: EdgeInsets.only(bottom: 8.0, left: 8.0, right: 8.0),
-            width: 222.0,
+            width: 150.0,
             decoration: BoxDecoration(
-                color:
-                    _message.whom == clientID ? Colors.blueAccent : Colors.grey,
+                color: _message.value.whom == clientID
+                    ? Colors.blueAccent
+                    : Colors.grey,
                 borderRadius: BorderRadius.circular(7.0)),
           ),
-          ElevatedButton(onPressed:()=> Navigator.push(
-    context,
-    // MaterialPageRoute(builder: (context) =>  Test(title: _message.text.trim(),)),
-    MaterialPageRoute(builder: (context) =>  Detailschart(title:_message.text.trim() ,)),
-  ), child: Text('Click'))
+          ElevatedButton(
+              onPressed: () => Navigator.push(
+                    context,
+                    // MaterialPageRoute(builder: (context) =>  Test(title: _message.text.trim(),)),
+                    MaterialPageRoute(
+                        builder: (context) => Detailschart(
+                              title: _message.value.text.trim(),
+                            )),
+                  ),
+              child: Text('Click')),
+          SizedBox(
+            width: 10,
+          ),
+          ElevatedButton.icon(
+              onPressed: () {
+                messages.removeAt(_message.key);
+                setState(() {
+                  messages;
+                });
+              },
+              icon: Icon(Icons.delete),
+              label: Text(''))
         ],
-        mainAxisAlignment: _message.whom == clientID
+        mainAxisAlignment: _message.value.whom == clientID
             ? MainAxisAlignment.end
             : MainAxisAlignment.start,
       );
@@ -116,6 +134,7 @@ class _ChatPage extends State<ChatPage> {
 
     return Scaffold(
       appBar: AppBar(
+          backgroundColor: Colors.red,
           title: (isConnecting
               ? Text('Connecting chat to ' + widget.server.name + '...')
               : isConnected
@@ -130,10 +149,9 @@ class _ChatPage extends State<ChatPage> {
                   controller: listScrollController,
                   children: list),
             ),
-            Row(children: [
-              
-            ],)
-            
+            Row(
+              children: [],
+            )
           ],
         ),
       ),
@@ -188,5 +206,4 @@ class _ChatPage extends State<ChatPage> {
           : _messageBuffer + dataString);
     }
   }
-
 }

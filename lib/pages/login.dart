@@ -1,8 +1,11 @@
 
+// ignore_for_file: unused_field
+
 import 'package:awesome_dialog/awesome_dialog.dart';
-import '/pages/home.dart';
+
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_blue_app/MainPage.dart';
 class Login extends StatefulWidget {
   const Login({ Key key }) : super(key: key);
 
@@ -136,14 +139,14 @@ class _LoginState extends State<Login> {
                               borderRadius: BorderRadius.circular(1.0),
                             )
                           ),
-                      backgroundColor:MaterialStateProperty.all(Color.fromRGBO(75, 174, 79,1)),
+                      backgroundColor:MaterialStateProperty.all(Colors.red),
                       fixedSize: MaterialStateProperty.all(const Size(349, 48)),
                       textStyle:MaterialStateProperty.all(const TextStyle(fontSize: 16))),
                         onPressed:()async{
                         
                           user = await signIn();
                           if(user !=null){
-                            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_)=>Home()));
+                            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_)=>MainPage()));
                           }
                         },
                         child: const Text('connecter'),
