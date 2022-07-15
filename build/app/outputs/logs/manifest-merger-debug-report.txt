@@ -8,6 +8,7 @@ MERGED from C:\Users\benbr\OneDrive\Documents\blu_chat-main\android\app\src\main
 MERGED from [:firebase_auth] C:\Users\benbr\OneDrive\Documents\blu_chat-main\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
 MERGED from [:firebase_core] C:\Users\benbr\OneDrive\Documents\blu_chat-main\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
 MERGED from [:flutter_bluetooth_serial] C:\Users\benbr\OneDrive\Documents\blu_chat-main\build\flutter_bluetooth_serial\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-12:12
+MERGED from [:path_provider_android] C:\Users\benbr\OneDrive\Documents\blu_chat-main\build\path_provider_android\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\benbr\.gradle\caches\transforms-2\files-2.1\36d105f1088d610c85662b38dc9e696d\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:17:1-23:12
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\benbr\.gradle\caches\transforms-2\files-2.1\19ad294e9d32c8d9aa8ce10b5b737f1c\jetified-window-1.0.0-beta04\AndroidManifest.xml:17:1-33:12
 MERGED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\benbr\.gradle\caches\transforms-2\files-2.1\aa232d0055cbf53ef3922f2117d9c9c9\jetified-firebase-auth-21.0.5\AndroidManifest.xml:17:1-73:12
@@ -145,6 +146,8 @@ MERGED from [:firebase_core] C:\Users\benbr\OneDrive\Documents\blu_chat-main\bui
 MERGED from [:firebase_core] C:\Users\benbr\OneDrive\Documents\blu_chat-main\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:flutter_bluetooth_serial] C:\Users\benbr\OneDrive\Documents\blu_chat-main\build\flutter_bluetooth_serial\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:flutter_bluetooth_serial] C:\Users\benbr\OneDrive\Documents\blu_chat-main\build\flutter_bluetooth_serial\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:path_provider_android] C:\Users\benbr\OneDrive\Documents\blu_chat-main\build\path_provider_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:path_provider_android] C:\Users\benbr\OneDrive\Documents\blu_chat-main\build\path_provider_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\benbr\.gradle\caches\transforms-2\files-2.1\36d105f1088d610c85662b38dc9e696d\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:19:5-21:41
 MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\benbr\.gradle\caches\transforms-2\files-2.1\36d105f1088d610c85662b38dc9e696d\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:19:5-21:41
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\benbr\.gradle\caches\transforms-2\files-2.1\19ad294e9d32c8d9aa8ce10b5b737f1c\jetified-window-1.0.0-beta04\AndroidManifest.xml:20:5-22:41

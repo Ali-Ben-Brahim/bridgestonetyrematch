@@ -2,8 +2,9 @@
 
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
-import 'package:flutter_blue_app/pages/table_page.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
+
+import 'pages/slide_page.dart';
 
 class ChatPage extends StatefulWidget {
   final BluetoothDevice server;
@@ -108,7 +109,7 @@ class _ChatPage extends State<ChatPage> {
                     context,
                     // MaterialPageRoute(builder: (context) =>  Test(title: _message.text.trim(),)),
                     MaterialPageRoute(
-                        builder: (context) => Detailschart(
+                        builder: (context) => Slidepage(
                               title: _message.value.text.trim(),
                             )),
                   ),

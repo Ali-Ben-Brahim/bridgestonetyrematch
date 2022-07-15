@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import '../const_variable.dart';
 
 class Detailschart extends StatefulWidget {
-  const Detailschart({Key key, this.title}) : super(key: key);
-  final String title;
+  const Detailschart({Key key, this.data}) : super(key: key);
+  final String data;
   @override
   State<Detailschart> createState() => DetailschartState();
 }
@@ -30,31 +33,20 @@ class DetailschartState extends State<Detailschart> {
   DataRow fct(i, j) {
     return DataRow(cells: [
       DataCell(
-        Text('$i'),
+        Text('$i',style: GoogleFonts.lora(textStyle:styledata)),
       ),
       DataCell(
-        Text('$j'),
+        Text('$j',style: GoogleFonts.lora(textStyle:styledata)),
       )
     ]);
   }
 
   @override
   Widget build(BuildContext context) {
-    var test = widget.title.split(RegExp(r"\s+|,\s+"));
-    double lead =
-        ((double.parse(test[4])/ double.parse(test[6])) / (double.parse(test[3]) / double.parse(test[5])) - 1) *
-            100;
-    double interAxieRatio =
-        (double.parse(test[3])/ double.parse(test[5])) ;
-    double front =
-        (double.parse(test[8])/ double.parse(test[3])) ;  
-         double rear =
-        (double.parse(test[8])/ double.parse(test[5])) ;   
+    var test = widget.data.split(RegExp(r"\s+|,\s+"));
+   
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("Table"),
-          backgroundColor: Colors.red,
-        ),
+        
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -64,38 +56,26 @@ class DetailschartState extends State<Detailschart> {
                   children: <Widget>[
                     Text(
                       "Table",
-                      textScaleFactor: 2,
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      
+                      style: GoogleFonts.ibarraRealNova(textStyle: styletitle),
                     ),
                     DataTable(
                         columns: const [
                           DataColumn(
-                            label: Text('Type'),
+                            label: Text('Type',style: TextStyle(fontSize: 36),),
                           ),
                           DataColumn(
-                            label: Text('Donnees'),
+                            label: Text('Donnees',style: TextStyle(fontSize: 36)),
                           ),
                         ],
                         rows: List.generate(type.length,
                             (index) => fct(type[index], test[index]))),
                             SizedBox(height: 20,),
-                            Text("Calcul",
-                      textScaleFactor: 2,
-                      style: TextStyle(fontWeight: FontWeight.bold),)
+                            
                                 
                                 
                   ]),
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Column( crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                                  Text("lead: ${lead.toStringAsFixed(2)}",style: TextStyle(fontSize: 20),),
-                                  Text("inter axie raio : ${interAxieRatio.toStringAsFixed(2)}",style: TextStyle(fontSize: 20)),
-                                  Text("Rolling circumferences:",style: TextStyle(fontSize: 22)),
-                                  Text("Front: ${front.toStringAsFixed(2)}",style: TextStyle(fontSize: 20)),
-                                  Text("Rear: ${rear.toStringAsFixed(2)}",style: TextStyle(fontSize: 20))
-                    ],),
-                  )
+                  
             ],
           
           ),

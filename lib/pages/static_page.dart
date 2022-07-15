@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_blue_app/pages/table_page.dart';
+import 'package:flutter_blue_app/pages/slide_page.dart';
 
 class Staticpage extends StatefulWidget {
   Staticpage({Key key}) : super(key: key);
@@ -37,7 +37,7 @@ class _StaticpageState extends State<Staticpage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => Detailschart(
+                      builder: (context) => Slidepage(
                             title: test,
                           )),
                 );
