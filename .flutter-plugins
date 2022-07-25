@@ -1,0 +1,25 @@
+# This is a generated file; do not edit or check into version control.
+cloud_firestore=C:\\flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\cloud_firestore-3.3.0\\
+cloud_firestore_web=C:\\flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\cloud_firestore_web-2.7.0\\
+firebase_auth=C:\\flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_auth-3.4.1\\
+firebase_auth_web=C:\\flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_auth_web-3.3.19\\
+firebase_core=C:\\flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_core-1.19.1\\
+firebase_core_web=C:\\flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_core_web-1.7.0\\
+flutter_bluetooth_serial=C:\\flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\flutter_bluetooth_serial-0.4.0\\
+flutter_plugin_android_lifecycle=C:\\flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\flutter_plugin_android_lifecycle-2.0.7\\
+google_sign_in=C:\\flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\google_sign_in-5.4.0\\
+google_sign_in_android=C:\\flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\google_sign_in_android-6.0.1\\
+google_sign_in_ios=C:\\flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\google_sign_in_ios-5.4.0\\
+google_sign_in_web=C:\\flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\google_sign_in_web-0.10.2\\
+image_picker=C:\\flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\image_picker-0.8.5+3\\
+image_picker_android=C:\\flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\image_picker_android-0.8.5+1\\
+image_picker_for_web=C:\\flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\image_picker_for_web-2.1.8\\
+image_picker_ios=C:\\flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\image_picker_ios-0.8.5+6\\
+location=C:\\flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\location-4.4.0\\
+location_web=C:\\flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\location_web-3.1.1\\
+path_provider=C:\\flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider-2.0.11\\
+path_provider_android=C:\\flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider_android-2.0.16\\
+path_provider_ios=C:\\flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider_ios-2.0.10\\
+path_provider_linux=C:\\flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider_linux-2.1.7\\
+path_provider_macos=C:\\flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider_macos-2.0.6\\
+path_provider_windows=C:\\flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider_windows-2.1.0\\
