@@ -1,8 +1,10 @@
+import 'dart:convert';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:http/http.dart' as http;
 import '../const_variable.dart';
 
 class Calculpage extends StatefulWidget {
@@ -65,10 +67,10 @@ class _CalculpageState extends State<Calculpage> {
             style: GoogleFonts.ibarraRealNova(textStyle: styletitle),
           )),
           Text(
-            "lead: ${lead.toStringAsFixed(virgule)}",
+            "Lead: ${lead.toStringAsFixed(virgule)}",
             style: GoogleFonts.lora(textStyle: styledata),
           ),
-          Text("inter axie raio : ${interAxieRatio.toStringAsFixed(virgule)}",
+          Text("Inter axie raio : ${interAxieRatio.toStringAsFixed(virgule)}",
               style: GoogleFonts.lora(textStyle: styledata)),
           _role==''?Container():
           _role =='basic'?Container():
@@ -97,6 +99,39 @@ class _CalculpageState extends State<Calculpage> {
           _role =='basic'?Container():
           _role !='standard'?Container():Text("Axle Ratio: ${axleRatio.toStringAsFixed(2)}",
               style: GoogleFonts.lora(textStyle: styledata)),
+          ElevatedButton(onPressed: ()async{
+            try{
+              
+              if(_role =='basic'){
+                var resp =await http.post(
+                  Uri.parse("http://10.0.2.2:90/bridgestonetyrematch/fichier.php"),
+                  body: {
+                    'role':_role,
+                    'lead' :lead.toStringAsFixed(virgule),
+                    'interAxieRatio':interAxieRatio.toStringAsFixed(virgule),
+                  },
+                );
+              }
+              if(_role =='standard'){
+                var resp =await http.post(
+                  Uri.parse("http://10.0.2.2:90/bridgestonetyrematch/fichier.php"),
+                  body: {
+                    'role': _role,
+                    'lead' : lead.toStringAsFixed(virgule),
+                    'interAxieRatio' : interAxieRatio.toStringAsFixed(virgule),
+                    'front' : front.toStringAsFixed(virgule),
+                    'rear' : rear.toStringAsFixed(virgule),
+                    'slip' : slip.toStringAsFixed(2),
+                    'axleDifference' : axleDifference.toStringAsFixed(2),
+                    'axleRatio' : axleRatio.toStringAsFixed(2),
+                  },
+                );
+              }
+            }catch(_){
+            }
+          }, child: SizedBox(
+            width: double.infinity,
+            child: Text("save"),))
         ],
       ),
     );

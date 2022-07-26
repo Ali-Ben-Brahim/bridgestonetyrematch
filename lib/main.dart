@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_blue_app/pages/home.dart';
 import 'package:flutter_blue_app/pages/login.dart';
+import 'package:flutter_blue_app/pages/static_page.dart';
 import 'firebase_options.dart';
 import 'package:splashscreen/splashscreen.dart';
 
@@ -55,7 +56,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: islogin ? Home() : Login(),
+      home: islogin ? Staticpage() : Login(),
     );
   }
 }

@@ -2,7 +2,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_blue_app/pages/formulaires/input_photograph.dart';
+import 'package:flutter_blue_app/pages/input/input_photograph.dart';
 
 class InputTyreInspection extends StatefulWidget {
   var BL;

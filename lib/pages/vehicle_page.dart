@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_blue_app/pages/formulaires/input_vehicle.dart';
+import 'package:flutter_blue_app/pages/input/input_vehicle.dart';
 import 'package:flutter_blue_app/pages/search_vehicle.dart';
 
 class VehiclesPage extends StatefulWidget {

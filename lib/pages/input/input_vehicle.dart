@@ -3,7 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_blue_app/pages/formulaires/input_tyre.dart';
+import 'package:flutter_blue_app/pages/input/input_tyre.dart';
 
 class InputVehicle extends StatefulWidget {
   var BL;

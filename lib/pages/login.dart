@@ -6,6 +6,7 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_blue_app/MainPage.dart';
+import 'package:flutter_blue_app/pages/static_page.dart';
 class Login extends StatefulWidget {
   const Login({ Key key }) : super(key: key);
 
@@ -145,7 +146,7 @@ class _LoginState extends State<Login> {
                         
                           user = await signIn();
                           if(user !=null){
-                            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_)=>MainPage()));
+                            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_)=>Staticpage()));
                           }
                         },
                         child: const Text('connecter'),
